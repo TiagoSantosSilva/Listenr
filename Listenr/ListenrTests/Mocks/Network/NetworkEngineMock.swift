@@ -26,6 +26,12 @@ final class NetworkEngineMock: NetworkEnginable {
     
     // MARK: - Initialization
     
+    init() {
+        self.builder = NetworkRequestBuilder(queryParameterBuilder: NetworkRequestQueryParameterBuilder())
+        self.diskProvider = DiskProvider()
+        self.parser = NetworkResponseParser(diskProvider: DiskProvider())
+    }
+    
     init(builder: NetworkRequestBuildable, diskProvider: DiskProvidable, parser: NetworkResponseParseable) {
         self.builder = builder
         self.diskProvider = diskProvider
@@ -37,6 +43,7 @@ final class NetworkEngineMock: NetworkEnginable {
     func request<T: Decodable>(endpoint: Endpoint<T>, completion: @escaping NetworkCompletion<T>) {
         guard let completion = completion as? NetworkCompletion<AnyDecodable>,
             let resultType = resultType else { fatalError() }
+        
         switch resultType {
         case .success:
             completion(.success(result))

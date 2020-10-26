@@ -22,4 +22,8 @@ final class DependencyContainerMock: DependencyContainable {
                                                                              diskProvider: diskProvider,
                                                                              parser: parser))
     }
+    
+    init(networkProvider: NetworkProviderMock) {
+        self.networkProvider = networkProvider
+    }
 }

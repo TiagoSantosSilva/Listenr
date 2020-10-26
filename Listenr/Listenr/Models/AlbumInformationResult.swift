@@ -2,7 +2,7 @@
 //  AlbumInformationResult.swift
 //  Listenr
 //
-//  Created by Tiago Santos on 25/10/2020.
+//  Created by Tiago Silva on 25/10/2020.
 //
 
 import Foundation
@@ -64,6 +64,17 @@ struct AlbumInformation: Decodable {
     }
 }
 
+extension AlbumInformation: Equatable {
+    static func ==(lhs: AlbumInformation, rhs: AlbumInformation) -> Bool {
+        return lhs.name == rhs.name &&
+            lhs.artist == rhs.artist &&
+            lhs.url == rhs.url &&
+            lhs.listeners == rhs.listeners &&
+            lhs.playCount == rhs.playCount &&
+            lhs.tracks == rhs.tracks
+    }
+}
+
 struct Tracks: Codable {
     let tracks: [Track]
 
@@ -75,4 +86,10 @@ struct Tracks: Codable {
 // MARK: - Track
 struct Track: Codable {
     let name: String
+}
+
+extension Track: Equatable {
+    static func ==(lhs: Track, rhs: Track) -> Bool {
+        return lhs.name == rhs.name
+    }
 }

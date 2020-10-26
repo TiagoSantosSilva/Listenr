@@ -2,7 +2,7 @@
 //  AlbumDetailsCoordinator.swift
 //  Listenr
 //
-//  Created by Tiago Santos on 25/10/2020.
+//  Created by Tiago Silva on 25/10/2020.
 //
 
 import CoreKit

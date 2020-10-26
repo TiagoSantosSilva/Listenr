@@ -35,7 +35,7 @@ final class NetworkRequestBuilderTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        builder = .init()
+        builder = .init(queryParameterBuilder: NetworkRequestQueryParameterBuilder())
     }
     
     override func tearDown() {

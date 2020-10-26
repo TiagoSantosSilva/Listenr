@@ -13,6 +13,10 @@ final class NetworkProviderMock: NetworkProvidable {
     
     var engine: NetworkEnginable!
     
+    init() {
+        self.engine = NetworkEngineMock()
+    }
+    
     init(engine: NetworkEnginable) {
         self.engine = engine
     }
