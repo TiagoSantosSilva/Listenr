@@ -36,7 +36,6 @@ public final class DiskProvider: DiskProvidable {
         guard let queryItems = queryItems(for: request),
               let fileURL = filePath(for: queryItems) else { return nil }
         do {
-            print("Is online: \(isOnline) 🇵🇹🇵🇹🇵🇹")
             let data = try Data(contentsOf: fileURL, options: .mappedIfSafe)
             let wrappedData = try decoder.decode(DiskWrappedData.self, from: data)
             

@@ -25,6 +25,7 @@
 		27A969ED25449D56004FC753 /* NetworkTypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A969EC25449D56004FC753 /* NetworkTypeAliases.swift */; };
 		9A786C8E2546F181004C2FD2 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A786C8D2546F181004C2FD2 /* String.swift */; };
 		9A786C9325470E54004C2FD2 /* DiskWrappedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A786C9225470E54004C2FD2 /* DiskWrappedData.swift */; };
+		9A786C99254721D4004C2FD2 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A786C98254721D4004C2FD2 /* Bundle.swift */; };
 		9AB9CA2F2546ED6A00289A64 /* DiskProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB9CA2E2546ED6A00289A64 /* DiskProvider.swift */; };
 		9AB9CA332546EF6800289A64 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB9CA322546EF6800289A64 /* Dictionary.swift */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,7 @@
 		27A969EC25449D56004FC753 /* NetworkTypeAliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTypeAliases.swift; sourceTree = "<group>"; };
 		9A786C8D2546F181004C2FD2 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		9A786C9225470E54004C2FD2 /* DiskWrappedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskWrappedData.swift; sourceTree = "<group>"; };
+		9A786C98254721D4004C2FD2 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		9AB9CA2E2546ED6A00289A64 /* DiskProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskProvider.swift; sourceTree = "<group>"; };
 		9AB9CA322546EF6800289A64 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,8 +169,9 @@
 		27A969CD25449CC2004FC753 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				27A969E425449D38004FC753 /* Result.swift */,
+				9A786C98254721D4004C2FD2 /* Bundle.swift */,
 				9AB9CA322546EF6800289A64 /* Dictionary.swift */,
+				27A969E425449D38004FC753 /* Result.swift */,
 				9A786C8D2546F181004C2FD2 /* String.swift */,
 			);
 			path = Extensions;
@@ -340,6 +343,7 @@
 				27A969E025449D26004FC753 /* NetworkResponseRanges.swift in Sources */,
 				27A969DF25449D26004FC753 /* HTTPMethod.swift in Sources */,
 				9AB9CA332546EF6800289A64 /* Dictionary.swift in Sources */,
+				9A786C99254721D4004C2FD2 /* Bundle.swift in Sources */,
 				9A786C8E2546F181004C2FD2 /* String.swift in Sources */,
 				27A969E525449D38004FC753 /* Result.swift in Sources */,
 				27A969D625449CFF004FC753 /* NetworkProvider.swift in Sources */,

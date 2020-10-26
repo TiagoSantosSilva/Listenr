@@ -70,7 +70,6 @@ public final class NetworkEngine: NSObject, NetworkEnginable, URLSessionDelegate
                 parser.parseCachedData(data: data, completion: completion)
                 return
             }
-            print("URL: \(String(describing: request.url)) 🧩")
             runTask(for: request, completion: completion)
         } catch {
             completion(.failure(.urlBuildFailed))

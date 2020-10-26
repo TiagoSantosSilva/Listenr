@@ -15,6 +15,13 @@ public final class ServiceFailView: View {
     private let messageLabel: UILabel = .init()
     private let button: RoundableButton = .init(type: .system)
     
+    // MARK: - Constants
+    
+    private enum Constants {
+        static let message: String = "Something went wrong while loading your data."
+        static let buttonTitle: String = "Try Again"
+    }
+    
     // MARK: - Properties
     
     var actionHandler: VoidCompletion?
@@ -38,8 +45,8 @@ public final class ServiceFailView: View {
     }
     
     private func setupTexts() {
-        messageLabel.text = "Something went wrong while loading your data."
-        button.setTitle("Try Again", for: .normal)
+        messageLabel.text = Constants.message
+        button.setTitle(Constants.buttonTitle, for: .normal)
     }
     
     // MARK: - Selectors

@@ -27,6 +27,18 @@ final class ChartTopTagsViewController: ViewController {
     
     weak var delegate: ChartTopTagsViewControllerDelegate?
     
+    // MARK: - Constants
+    
+    private enum Constants {
+        enum CloseButton {
+            static let title: String = "Close"
+        }
+        
+        enum NavigationItem {
+            static let title: String = "Chart Top Tags"
+        }
+    }
+    
     // MARK: - Initialization
     
     init(dataSource: ChartTopTagsDataSourceable, viewModel: ChartTopTagsViewModelable) {
@@ -54,9 +66,9 @@ final class ChartTopTagsViewController: ViewController {
         view.backgroundColor = Color.backgroundGray
         displayLoadingView()
         viewModel.loadTopTags()
-        let closeButton: UIBarButtonItem = .init(title: "Close", style: .done, target: self, action: #selector(closeButtonWasTapped))
+        let closeButton: UIBarButtonItem = .init(title: Constants.CloseButton.title, style: .done, target: self, action: #selector(closeButtonWasTapped))
         navigationItem.setLeftBarButton(closeButton, animated: false)
-        navigationItem.title = "Chart Top Tags"
+        navigationItem.title = Constants.NavigationItem.title
     }
     
     private func setupSearch() {

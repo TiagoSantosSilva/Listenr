@@ -51,7 +51,6 @@ final class AlbumDetailsViewController: ViewController {
 
 extension AlbumDetailsViewController: AlbumDetailsViewModelDelegate {
     func viewModel(_ viewModel: AlbumDetailsViewModel, didLoad details: AlbumInformation) {
-        print("\(details) 🤩🤩🤩")
         DispatchQueue.main.async {
             self.detailsView.configure(with: details)
             self.hideLoadingView()

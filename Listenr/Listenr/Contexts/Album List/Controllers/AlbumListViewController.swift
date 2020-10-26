@@ -27,6 +27,14 @@ final class AlbumListViewController: ViewController {
     
     weak var delegate: AlbumListViewControllerDelegate?
     
+    // MARK: - Constants
+    
+    private enum Constants {
+        enum BarButtonItem {
+            static let title = "Tags"
+        }
+    }
+    
     // MARK: - Initialization
     
     init(viewModel: AlbumListViewModelable) {
@@ -68,7 +76,7 @@ final class AlbumListViewController: ViewController {
     }
     
     private func setupNavigationItem() {
-        let button: UIBarButtonItem = .init(title: "Tags", style: .plain, target: self, action: #selector(tagsButtonWasTapped))
+        let button: UIBarButtonItem = .init(title: Constants.BarButtonItem.title, style: .plain, target: self, action: #selector(tagsButtonWasTapped))
         navigationItem.setRightBarButton(button, animated: false)
         navigationItem.title = viewModel.selectedTag.name
     }
