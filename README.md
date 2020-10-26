@@ -10,10 +10,6 @@ All required features were implemented. Some extras were implemented, those bein
 
 ## Screenshots
 
-![](README/Album%20Details.PNG)
-
-
-
 
 ## Caching & Offline Mode
 The app offers both Caching and Offline Mode.
