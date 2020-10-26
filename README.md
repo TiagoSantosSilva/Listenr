@@ -11,7 +11,7 @@ All required features were implemented. Some extras were implemented, those bein
 ## Screenshots
 
 ![Album List](https://github.com/TiagoSantosSilva/Listenr/blob/main/Screenshots/Album%20List.PNG)
-![Album Details](https://github.com/TiagoSantosSilva/Listenr/blob/main/Screenshots/Album%20List.PNG)
+![Album Details](https://github.com/TiagoSantosSilva/Listenr/blob/main/Screenshots/Album%20Details.PNG)
 ![Top Tags](https://github.com/TiagoSantosSilva/Listenr/blob/main/Screenshots/Top%20Tags.PNG)
 ![Error Screen](https://github.com/TiagoSantosSilva/Listenr/blob/main/Screenshots/Error%20Screen.PNG)
 
