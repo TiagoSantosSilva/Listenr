@@ -17,6 +17,13 @@ public final class PageRequestStatus {
     }
 }
 
+extension PageRequestStatus: Equatable {
+    public static func ==(lhs: PageRequestStatus, rhs: PageRequestStatus) -> Bool {
+        return lhs.page == rhs.page &&
+            lhs.requestStatus == rhs.requestStatus
+    }
+}
+
 public extension Array where Element: PageRequestStatus {
     func find(for page: Int) -> PageRequestStatus? {
         return first(where: { $0.page == page })
