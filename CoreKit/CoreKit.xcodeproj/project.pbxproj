@@ -52,6 +52,7 @@
 		9A786CA12547244F004C2FD2 /* ArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A786CA02547244F004C2FD2 /* ArrayTests.swift */; };
 		9A786CA525472798004C2FD2 /* IndexPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A786CA425472798004C2FD2 /* IndexPathTests.swift */; };
 		9A786CAD2547288E004C2FD2 /* PageRequestStatusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A786CAC2547288E004C2FD2 /* PageRequestStatusTests.swift */; };
+		9A786D012547470B004C2FD2 /* AnyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A786D002547470B004C2FD2 /* AnyCodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,7 @@
 		9A786CA02547244F004C2FD2 /* ArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayTests.swift; sourceTree = "<group>"; };
 		9A786CA425472798004C2FD2 /* IndexPathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexPathTests.swift; sourceTree = "<group>"; };
 		9A786CAC2547288E004C2FD2 /* PageRequestStatusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageRequestStatusTests.swift; sourceTree = "<group>"; };
+		9A786D002547470B004C2FD2 /* AnyCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCodable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 		27A8508B2545B10500C506FA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9A786CFF25474702004C2FD2 /* Any Codable */,
 				27A8508C2545B10A00C506FA /* Pagination */,
 			);
 			path = Models;
@@ -458,6 +461,14 @@
 			path = Pagination;
 			sourceTree = "<group>";
 		};
+		9A786CFF25474702004C2FD2 /* Any Codable */ = {
+			isa = PBXGroup;
+			children = (
+				9A786D002547470B004C2FD2 /* AnyCodable.swift */,
+			);
+			path = "Any Codable";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -595,6 +606,7 @@
 				27A850BD2545E70400C506FA /* Color.swift in Sources */,
 				27C845512546282300AD86F4 /* ServiceFailView+Layouter.swift in Sources */,
 				27A9697225449A5E004FC753 /* CollectionView.swift in Sources */,
+				9A786D012547470B004C2FD2 /* AnyCodable.swift in Sources */,
 				27A9698D25449AD3004FC753 /* CellRegistable.swift in Sources */,
 				27A8508E2545B11600C506FA /* RequestStatus.swift in Sources */,
 				27C84549254623F700AD86F4 /* ServiceFailRecoverDelegate.swift in Sources */,

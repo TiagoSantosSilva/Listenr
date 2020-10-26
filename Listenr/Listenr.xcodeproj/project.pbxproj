@@ -52,6 +52,10 @@
 		27FE3FEB2544C2D30093043C /* AlbumListCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FE3FEA2544C2D30093043C /* AlbumListCollectionViewLayout.swift */; };
 		27FE3FF12544C3A60093043C /* AlbumListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FE3FF02544C3A60093043C /* AlbumListDataSource.swift */; };
 		27FE3FF52544C4200093043C /* AlbumListLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FE3FF42544C4200093043C /* AlbumListLoader.swift */; };
+		9A786CE525474379004C2FD2 /* AlbumDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A786CE425474379004C2FD2 /* AlbumDetailsViewModelTests.swift */; };
+		9A786CF6254743DB004C2FD2 /* NetworkProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A786CF5254743DB004C2FD2 /* NetworkProviderMock.swift */; };
+		9A786CFC2547461B004C2FD2 /* NetworkEngineMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A786CFB2547461B004C2FD2 /* NetworkEngineMock.swift */; };
+		9A786D1425474962004C2FD2 /* DependencyContainerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A786D1325474962004C2FD2 /* DependencyContainerMock.swift */; };
 		9AB9CA112546EB6A00289A64 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB9CA102546EB6A00289A64 /* UserDefaults.swift */; };
 		9AB9CA172546EB7D00289A64 /* StoreReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB9CA162546EB7D00289A64 /* StoreReviewManager.swift */; };
 		9AB9CA1C2546EBB600289A64 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AB9CA1B2546EBB600289A64 /* Kingfisher.framework */; };
@@ -142,6 +146,10 @@
 		27FE3FEA2544C2D30093043C /* AlbumListCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListCollectionViewLayout.swift; sourceTree = "<group>"; };
 		27FE3FF02544C3A60093043C /* AlbumListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListDataSource.swift; sourceTree = "<group>"; };
 		27FE3FF42544C4200093043C /* AlbumListLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListLoader.swift; sourceTree = "<group>"; };
+		9A786CE425474379004C2FD2 /* AlbumDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		9A786CF5254743DB004C2FD2 /* NetworkProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProviderMock.swift; sourceTree = "<group>"; };
+		9A786CFB2547461B004C2FD2 /* NetworkEngineMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEngineMock.swift; sourceTree = "<group>"; };
+		9A786D1325474962004C2FD2 /* DependencyContainerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainerMock.swift; sourceTree = "<group>"; };
 		9AB9CA102546EB6A00289A64 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		9AB9CA162546EB7D00289A64 /* StoreReviewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreReviewManager.swift; sourceTree = "<group>"; };
 		9AB9CA1B2546EBB600289A64 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
@@ -241,10 +249,9 @@
 		27A850C32545E83C00C506FA /* Album Details */ = {
 			isa = PBXGroup;
 			children = (
+				9A786CDF2547422C004C2FD2 /* Controller */,
 				27A850E02545FDAD00C506FA /* View */,
-				27A850CA2545E85C00C506FA /* AlbumDetailsCoordinator.swift */,
-				27A850C42545E84A00C506FA /* AlbumDetailsViewController.swift */,
-				27A850CE2545E86400C506FA /* AlbumDetailsViewModel.swift */,
+				9A786CE025474233004C2FD2 /* View Model */,
 			);
 			path = "Album Details";
 			sourceTree = "<group>";
@@ -296,6 +303,8 @@
 		27A968E52544973A004FC753 /* ListenrTests */ = {
 			isa = PBXGroup;
 			children = (
+				9A786CEA2547437E004C2FD2 /* Mocks */,
+				9A786CE1254742BA004C2FD2 /* Tests */,
 				27A968E62544973A004FC753 /* ListenrTests.swift */,
 				27A968E82544973A004FC753 /* Info.plist */,
 			);
@@ -353,14 +362,8 @@
 		27C845692546306F00AD86F4 /* Chart Top Tags */ = {
 			isa = PBXGroup;
 			children = (
-				27C8457A254630B600AD86F4 /* ChartTopTagsCollectionView.swift */,
-				27C8457E254630D400AD86F4 /* ChartTopTagsCollectionViewController.swift */,
-				27C84582254630DD00AD86F4 /* ChartTopTagsCollectionViewLayout.swift */,
-				27C84572254630A300AD86F4 /* ChartTopTagsCoordinator.swift */,
-				27C84586254632E100AD86F4 /* ChartTopTagsDataSource.swift */,
-				27C845A12546421E00AD86F4 /* ChartTopTagsSearchController.swift */,
-				27C8456A2546307B00AD86F4 /* ChartTopTagsViewController.swift */,
-				27C84576254630AF00AD86F4 /* ChartTopTagsViewModel.swift */,
+				9A786CDB254741CF004C2FD2 /* Controllers */,
+				9A786CDC254741E0004C2FD2 /* View Model */,
 				27C8458A2546342E00AD86F4 /* Views */,
 			);
 			path = "Chart Top Tags";
@@ -370,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				27C8458B2546343600AD86F4 /* Cells */,
+				9A786CDE254741EF004C2FD2 /* Collection View */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -432,6 +436,102 @@
 				270C9CAB2545A9D7007F69A3 /* Collection View */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		9A786CDB254741CF004C2FD2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				27C84586254632E100AD86F4 /* ChartTopTagsDataSource.swift */,
+				27C8457E254630D400AD86F4 /* ChartTopTagsCollectionViewController.swift */,
+				27C84572254630A300AD86F4 /* ChartTopTagsCoordinator.swift */,
+				27C845A12546421E00AD86F4 /* ChartTopTagsSearchController.swift */,
+				27C8456A2546307B00AD86F4 /* ChartTopTagsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9A786CDC254741E0004C2FD2 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				27C84576254630AF00AD86F4 /* ChartTopTagsViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		9A786CDE254741EF004C2FD2 /* Collection View */ = {
+			isa = PBXGroup;
+			children = (
+				27C8457A254630B600AD86F4 /* ChartTopTagsCollectionView.swift */,
+				27C84582254630DD00AD86F4 /* ChartTopTagsCollectionViewLayout.swift */,
+			);
+			path = "Collection View";
+			sourceTree = "<group>";
+		};
+		9A786CDF2547422C004C2FD2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				27A850CA2545E85C00C506FA /* AlbumDetailsCoordinator.swift */,
+				27A850C42545E84A00C506FA /* AlbumDetailsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9A786CE025474233004C2FD2 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				27A850CE2545E86400C506FA /* AlbumDetailsViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		9A786CE1254742BA004C2FD2 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				9A786CE2254742BE004C2FD2 /* Contexts */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		9A786CE2254742BE004C2FD2 /* Contexts */ = {
+			isa = PBXGroup;
+			children = (
+				9A786CE3254742CD004C2FD2 /* Album Details */,
+			);
+			path = Contexts;
+			sourceTree = "<group>";
+		};
+		9A786CE3254742CD004C2FD2 /* Album Details */ = {
+			isa = PBXGroup;
+			children = (
+				9A786CE425474379004C2FD2 /* AlbumDetailsViewModelTests.swift */,
+			);
+			path = "Album Details";
+			sourceTree = "<group>";
+		};
+		9A786CEA2547437E004C2FD2 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				9A786D122547495A004C2FD2 /* Dependencies */,
+				9A786CF4254743D2004C2FD2 /* Network */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		9A786CF4254743D2004C2FD2 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9A786CF5254743DB004C2FD2 /* NetworkProviderMock.swift */,
+				9A786CFB2547461B004C2FD2 /* NetworkEngineMock.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		9A786D122547495A004C2FD2 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				9A786D1325474962004C2FD2 /* DependencyContainerMock.swift */,
+			);
+			path = Dependencies;
 			sourceTree = "<group>";
 		};
 		9AB9CA0F2546EB6300289A64 /* Storage */ = {
@@ -626,7 +726,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A786CFC2547461B004C2FD2 /* NetworkEngineMock.swift in Sources */,
+				9A786D1425474962004C2FD2 /* DependencyContainerMock.swift in Sources */,
+				9A786CE525474379004C2FD2 /* AlbumDetailsViewModelTests.swift in Sources */,
 				27A968E72544973A004FC753 /* ListenrTests.swift in Sources */,
+				9A786CF6254743DB004C2FD2 /* NetworkProviderMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -835,6 +939,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 64E8842TP6;
 				INFOPLIST_FILE = ListenrTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -856,6 +961,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 64E8842TP6;
 				INFOPLIST_FILE = ListenrTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -876,6 +982,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 64E8842TP6;
 				INFOPLIST_FILE = ListenrUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -895,6 +1002,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 64E8842TP6;
 				INFOPLIST_FILE = ListenrUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
