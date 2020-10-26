@@ -8,20 +8,23 @@
 import Foundation
 
 public protocol NetworkRequestBuildable: class {
-    init()
+    init(queryParameterBuilder: NetworkRequestQueryParameterBuildable)
     
     func build<T: Decodable>(endpoint: Endpoint<T>) throws -> URLRequest
 }
 
 public final class NetworkRequestBuilder: NetworkRequestBuildable {
     
-    // MARK: -
+    // MARK: - Dependencies
     
     private lazy var encoder: JSONEncoder = .init()
+    private let queryParameterBuilder: NetworkRequestQueryParameterBuildable
     
     // MARK: - Initialization
     
-    public init() { }
+    public init(queryParameterBuilder: NetworkRequestQueryParameterBuildable) {
+        self.queryParameterBuilder = queryParameterBuilder
+    }
     
     // MARK: - Functions
     
@@ -42,10 +45,6 @@ public final class NetworkRequestBuilder: NetworkRequestBuildable {
         request.httpMethod = endpoint.method.rawValue
     }
     
-    private func buildPath<T>(request: inout URLRequest, endpoint: Endpoint<T>) {
-        request.url = request.url?.appendingPathComponent(endpoint.path)
-    }
-    
     private func buildQueryParameters<T>(request: inout URLRequest, endpoint: Endpoint<T>) throws {
         guard let url = request.url else { throw NetworkError.urlBuildFailed }
         let parameters = endpoint.queryParameters
@@ -55,9 +54,7 @@ public final class NetworkRequestBuilder: NetworkRequestBuildable {
         parameters.forEach {
             components.queryItems?.append($0)
         }
-        components.queryItems?.append(.init(name: "method", value: endpoint.path))
-        components.queryItems?.append(.init(name: "api_key", value: PropertyList.string(for: .apiKey)))
-        components.queryItems?.append(.init(name: "format", value: "json"))
+        queryParameterBuilder.build(components: &components, endpoint: endpoint)
         request.url = components.url
     }
 }
