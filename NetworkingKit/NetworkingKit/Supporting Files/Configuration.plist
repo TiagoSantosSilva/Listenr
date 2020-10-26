@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BackendKey</key>
+	<string>e1693eaec89a76c8cc3d895d8dcde422</string>
+	<key>BackendURL</key>
+	<string>http://ws.audioscrobbler.com/2.0/</string>
+</dict>
+</plist>
