@@ -18,7 +18,7 @@ protocol AlbumListViewModelable: class {
     var albums: [Album?] { get }
     var delegate: AlbumListViewModelDelegate? { get set }
     
-    init(loader: AlbumListLoadable)
+    init(loader: AlbumListLoadable, queue: DispatchQueue)
     
     func loadAlbums(at indexPath: IndexPath)
     func reloadData(for tag: ChartTopTag)
@@ -40,6 +40,10 @@ final class AlbumListViewModel: AlbumListViewModelable {
     private var status: Status = .loading
     private var itemsPerPage: Int?
     
+    // MARK: - Queues
+    
+    private let queue: DispatchQueue
+    
     // MARK: - Loader
     
     private let loader: AlbumListLoadable
@@ -58,8 +62,9 @@ final class AlbumListViewModel: AlbumListViewModelable {
     
     // MARK: - Initialization
     
-    required init(loader: AlbumListLoadable) {
+    required init(loader: AlbumListLoadable, queue: DispatchQueue = .init(label: #file)) {
         self.loader = loader
+        self.queue = queue
     }
     
     // MARK: - Functions
@@ -105,8 +110,10 @@ final class AlbumListViewModel: AlbumListViewModelable {
     }
     
     private func assignSucceededRequestStatus(for page: Int) {
-        guard let result = result(for: page) else { return }
-        result.requestStatus = .succeeded
+        result(for: page) { result in
+            guard let result = result else { return }
+            result.requestStatus = .succeeded
+        }
     }
     
     private func handleLoadOfFirstAlbumBatch(values: AlbumValues, at page: Int) {
@@ -129,18 +136,23 @@ final class AlbumListViewModel: AlbumListViewModelable {
     }
     
     private func handleLoadFailure(at page: Int) {
-        guard let result = result(for: page) else {
-            guard status == .loading || status == .reloading else { return }
-            delegate?.viewModelDidFailServiceCall(self) { [weak self] in
-                self?.loadAlbums(at: .zero)
+        result(for: page) { [weak self] result in
+            guard let result = result else {
+                guard let self = self else { return }
+                guard self.status == .loading || self.status == .reloading else { return }
+                self.delegate?.viewModelDidFailServiceCall(self) { [weak self] in
+                    self?.loadAlbums(at: .zero)
+                }
+                return
             }
-            return
+            result.requestStatus = .failed
         }
-        result.requestStatus = .failed
     }
     
-    private func result(for page: Int) -> PageRequestStatus? {
-        return pageRequestsStatuses.first(where: { $0.page == page })
+    private func result(for page: Int, completion: @escaping (_ status: PageRequestStatus?) -> Void) {
+        queue.async {
+            completion(self.pageRequestsStatuses.first(where: { $0.page == page }))
+        }
     }
     
     private func assignNewAlbums(_ newAlbums: [Album], for page: Int) {

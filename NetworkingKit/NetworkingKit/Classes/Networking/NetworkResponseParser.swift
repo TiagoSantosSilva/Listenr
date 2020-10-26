@@ -9,12 +9,17 @@ import Foundation
 import os.log
 
 public protocol NetworkResponseParseable: class {
-    init()
+    init(diskProvider: DiskProvidable)
     
-    func parse<T: Decodable>(response: URLResponse?, data: Data?, completion: @escaping NetworkCompletion<T>)
+    func parse<T: Decodable>(response: URLResponse?, request: URLRequest, data: Data?, completion: @escaping NetworkCompletion<T>)
+    func parseCachedData<T: Decodable>(data: Data, completion: @escaping NetworkCompletion<T>)
 }
 
 public final class NetworkResponseParser: NetworkResponseParseable {
+    
+    // MARK: - Dependencies
+    
+    private let diskProvider: DiskProvidable
     
     // MARK: - Decoder
     
@@ -22,25 +27,36 @@ public final class NetworkResponseParser: NetworkResponseParseable {
     
     // MARK: - Initialization
     
-    public init() { }
+    public init(diskProvider: DiskProvidable) {
+        self.diskProvider = diskProvider
+    }
     
     // MARK: - Functions
     
-    public func parse<T: Decodable>(response: URLResponse?, data: Data?, completion: @escaping NetworkCompletion<T>) {
+    public func parse<T: Decodable>(response: URLResponse?, request: URLRequest, data: Data?, completion: @escaping NetworkCompletion<T>) {
         guard let response = response as? HTTPURLResponse, let data = data else {
             completion(.failure(.noData))
             return
         }
-        
         switch result(for: response) {
         case .success:
-            performParsingOfSuccessfulResponse(response: response, data: data, completion: completion)
+            performParsingOfSuccessfulResponse(response: response, request: request, data: data, completion: completion)
         case .failure(let error):
             completion(.failure(error))
         }
     }
     
+    public func parseCachedData<T: Decodable>(data: Data, completion: @escaping NetworkCompletion<T>) {
+        do {
+            let response = try decoder.decode(T.self, from: data)
+            completion(.success(response))
+        } catch {
+            completion(.failure(.decodeFailed))
+        }
+    }
+    
     private func performParsingOfSuccessfulResponse<T: Decodable>(response: HTTPURLResponse,
+                                                                  request: URLRequest,
                                                                   data: Data,
                                                                   completion: @escaping NetworkCompletion<T>) {
         switch T.self {
@@ -48,7 +64,7 @@ public final class NetworkResponseParser: NetworkResponseParseable {
             guard let completion = completion as? NetworkCompletion<String> else { return }
             completion(.success(String(decoding: data, as: UTF8.self)))
         default:
-            decode(data: data, completion: completion)
+            decode(data: data, request: request, completion: completion)
         }
     }
     
@@ -76,7 +92,7 @@ public final class NetworkResponseParser: NetworkResponseParseable {
         }
     }
     
-    private func decode<T: Decodable>(data: Data?, completion: @escaping NetworkCompletion<T>) {
+    private func decode<T: Decodable>(data: Data?, request: URLRequest, completion: @escaping NetworkCompletion<T>) {
         guard let data = data else {
             completion(.failure(.noData))
             return
@@ -85,6 +101,7 @@ public final class NetworkResponseParser: NetworkResponseParseable {
         do {
             let response = try decoder.decode(T.self, from: data)
             completion(.success(response))
+            diskProvider.save(request: request, with: data)
         } catch {
             completion(.failure(.decodeFailed))
         }

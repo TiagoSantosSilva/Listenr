@@ -23,7 +23,9 @@ public final class DependencyContainer: DependencyContainable {
     // MARK: - Initialization
     
     public init() {
-        let networkEngine = NetworkEngine(builder: NetworkRequestBuilder(), parser: NetworkResponseParser())
+        let networkEngine = NetworkEngine(builder: NetworkRequestBuilder(),
+                                          diskProvider: DiskProvider(),
+                                          parser: NetworkResponseParser(diskProvider: DiskProvider()))
         self.networkProvider = NetworkProvider(engine: networkEngine)
     }
 }

@@ -23,6 +23,10 @@
 		27A969E525449D38004FC753 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A969E425449D38004FC753 /* Result.swift */; };
 		27A969E925449D4B004FC753 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A969E825449D4B004FC753 /* Endpoint.swift */; };
 		27A969ED25449D56004FC753 /* NetworkTypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A969EC25449D56004FC753 /* NetworkTypeAliases.swift */; };
+		9A786C8E2546F181004C2FD2 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A786C8D2546F181004C2FD2 /* String.swift */; };
+		9A786C9325470E54004C2FD2 /* DiskWrappedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A786C9225470E54004C2FD2 /* DiskWrappedData.swift */; };
+		9AB9CA2F2546ED6A00289A64 /* DiskProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB9CA2E2546ED6A00289A64 /* DiskProvider.swift */; };
+		9AB9CA332546EF6800289A64 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB9CA322546EF6800289A64 /* Dictionary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,10 @@
 		27A969E425449D38004FC753 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		27A969E825449D4B004FC753 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		27A969EC25449D56004FC753 /* NetworkTypeAliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTypeAliases.swift; sourceTree = "<group>"; };
+		9A786C8D2546F181004C2FD2 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		9A786C9225470E54004C2FD2 /* DiskWrappedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskWrappedData.swift; sourceTree = "<group>"; };
+		9AB9CA2E2546ED6A00289A64 /* DiskProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskProvider.swift; sourceTree = "<group>"; };
+		9AB9CA322546EF6800289A64 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +125,7 @@
 				27A969CB25449CB5004FC753 /* Classes */,
 				27A969CC25449CB9004FC753 /* Enumerations */,
 				27A969CD25449CC2004FC753 /* Extensions */,
+				9A786C9125470E3F004C2FD2 /* Models */,
 				27A969B225449B59004FC753 /* NetworkingKit.h */,
 				271AF2DB2544D45400E23774 /* Static */,
 				27A969CE25449CCB004FC753 /* Structs */,
@@ -138,10 +147,8 @@
 		27A969CB25449CB5004FC753 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				27A969D325449CFF004FC753 /* NetworkEngine.swift */,
-				27A969D225449CFF004FC753 /* NetworkProvider.swift */,
-				27A969D025449CFF004FC753 /* NetworkRequestBuilder.swift */,
-				27A969D125449CFF004FC753 /* NetworkResponseParser.swift */,
+				9AB9CA272546ED6200289A64 /* Storage */,
+				9AB9CA212546ED5B00289A64 /* Networking */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -161,6 +168,8 @@
 			isa = PBXGroup;
 			children = (
 				27A969E425449D38004FC753 /* Result.swift */,
+				9AB9CA322546EF6800289A64 /* Dictionary.swift */,
+				9A786C8D2546F181004C2FD2 /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -179,6 +188,33 @@
 				27A969EC25449D56004FC753 /* NetworkTypeAliases.swift */,
 			);
 			path = Typealiases;
+			sourceTree = "<group>";
+		};
+		9A786C9125470E3F004C2FD2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9A786C9225470E54004C2FD2 /* DiskWrappedData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9AB9CA212546ED5B00289A64 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				27A969D325449CFF004FC753 /* NetworkEngine.swift */,
+				27A969D225449CFF004FC753 /* NetworkProvider.swift */,
+				27A969D025449CFF004FC753 /* NetworkRequestBuilder.swift */,
+				27A969D125449CFF004FC753 /* NetworkResponseParser.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		9AB9CA272546ED6200289A64 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				9AB9CA2E2546ED6A00289A64 /* DiskProvider.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AB9CA2F2546ED6A00289A64 /* DiskProvider.swift in Sources */,
 				271AF2E52544D90400E23774 /* NetworkConstants.swift in Sources */,
 				27A969D525449CFF004FC753 /* NetworkResponseParser.swift in Sources */,
 				27A969E925449D4B004FC753 /* Endpoint.swift in Sources */,
@@ -298,9 +335,12 @@
 				27A969D425449CFF004FC753 /* NetworkRequestBuilder.swift in Sources */,
 				27A969D725449CFF004FC753 /* NetworkEngine.swift in Sources */,
 				271AF2DD2544D48700E23774 /* PropertyList.swift in Sources */,
+				9A786C9325470E54004C2FD2 /* DiskWrappedData.swift in Sources */,
 				27A969ED25449D56004FC753 /* NetworkTypeAliases.swift in Sources */,
 				27A969E025449D26004FC753 /* NetworkResponseRanges.swift in Sources */,
 				27A969DF25449D26004FC753 /* HTTPMethod.swift in Sources */,
+				9AB9CA332546EF6800289A64 /* Dictionary.swift in Sources */,
+				9A786C8E2546F181004C2FD2 /* String.swift in Sources */,
 				27A969E525449D38004FC753 /* Result.swift in Sources */,
 				27A969D625449CFF004FC753 /* NetworkProvider.swift in Sources */,
 			);
