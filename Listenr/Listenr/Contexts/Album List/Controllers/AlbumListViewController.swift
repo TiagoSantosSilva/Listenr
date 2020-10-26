@@ -48,6 +48,7 @@ final class AlbumListViewController: ViewController {
     
     func reload(for tag: ChartTopTag) {
         displayLoadingView()
+        self.collectionViewController.collectionView.scrollToItem(at: .zero, at: .bottom, animated: false)
         self.navigationItem.title = tag.name
         viewModel.reloadData(for: tag)
     }
@@ -55,13 +56,21 @@ final class AlbumListViewController: ViewController {
     // MARK: - Setups
     
     private func setupController() {
+        setupCollectionViewController()
+        setupNavigationItem()
+        displayLoadingView()
+        viewModel.loadAlbums(at: .zero)
+    }
+    
+    private func setupCollectionViewController() {
         add(child: collectionViewController)
         collectionViewController.setup()
-        displayLoadingView()
+    }
+    
+    private func setupNavigationItem() {
         let button: UIBarButtonItem = .init(title: "Tags", style: .plain, target: self, action: #selector(tagsButtonWasTapped))
         navigationItem.setRightBarButton(button, animated: false)
         navigationItem.title = viewModel.selectedTag.name
-        viewModel.loadAlbums(at: .zero)
     }
     
     // MARK: - Selectors

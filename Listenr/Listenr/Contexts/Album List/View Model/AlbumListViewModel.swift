@@ -110,7 +110,8 @@ final class AlbumListViewModel: AlbumListViewModelable {
     }
     
     private func handleLoadOfFirstAlbumBatch(values: AlbumValues, at page: Int) {
-        guard let total = Int(values.attributes.total) else { return }
+        guard let attributesTotal = Int(values.attributes.total) else { return }
+        let total: Int = attributesTotal <= Constants.maximumNumberOfAlbums ? attributesTotal : Constants.maximumNumberOfAlbums
         self.albums = (0..<total).map { _ in nil }
         self.itemsPerPage = Int(values.attributes.perPage)
         self.assignNewAlbums(values.albums, for: page)

@@ -25,7 +25,7 @@ struct AlbumDetailsViewViewModel {
             }
             return "\(information.tracks.count) tracks"
         }()
-        self.publishDate = "N/A"
+        self.publishDate = "Date N/A"
         self.artistName = information.artist
         self.listenerCount = {
             guard information.listeners != "1" else {

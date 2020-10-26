@@ -34,4 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         coordinator.start()
         return true
     }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        StoreReviewManager.shared.askForReviewIfNeeded()
+    }
 }
